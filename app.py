@@ -6,10 +6,6 @@ import pickle
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# 산점도 라벨 깨짐 방지 → 한글 폰트 설정
-plt.rcParams['font.family'] = 'Malgun Gothic'  # 윈도우 한글 폰트
-plt.rcParams['axes.unicode_minus'] = False
-
 # 2. 모델과 스케일러 pkl 불러오기
 # model.pkl 불러옴
 with open('model.pkl','rb') as f:
@@ -69,6 +65,8 @@ if st.button('예측하기'): # 클릭 시 True값이 할당됨.
 
     # - 산점도
     st.subheader('실제값 vs 예측값 산점도')
+    plt.rcParams['font.family'] = 'Malgun Gothic'
+    plt.rcParams['axes.unicode_minus'] = False
     fig2, ax2 = plt.subplots()
     ax2.scatter(y_test2, y_pred2, alpha=0.6)
     ax2.plot([y_test2.min(), y_test2.max()],

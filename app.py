@@ -56,7 +56,7 @@ if st.button('예측하기'): # 클릭 시 True값이 할당됨.
     # - Heatmap
     st.subheader('피처 간 상관관계 히트맵')
     fig, ax = plt.subplots()
-    sns.heatmap(df.corr(numeric_only=True), ax=ax, annot=True, fmt='.1f', cmap='coolwarm')
+    sns.heatmap(df.corr(numeric_only=True), ax=ax, annot=True, fmt='.2f', cmap='coolwarm')
     st.pyplot(fig)
 
     # - 산점도용 데이터 준비

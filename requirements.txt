@@ -1,0 +1,8 @@
+streamlit
+pandas
+numpy
+joblib
+tensorflow-cpu # 딥러닝 streamlit 배포시 사용, 머신러닝에서는 제외
+seaborn
+scikit-learn
+matplotlib

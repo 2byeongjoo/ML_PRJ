@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예측 결과</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">🌙 SleepML</div>
+        <a href="/">홈</a>
+        <a href="/predict">예측하기</a>
+        <a href="/history">내 기록</a>
+        <a href="/stats">통계/분석</a>
+    </nav>
+
+    <hr>
+
+    <div class="result-section">
+
+        <!-- 점수 -->
+        <div class="result-score-card">
+            <p class="result-label">예측 수면 품질 점수</p>
+            <p class="result-score">{{ score }}</p>
+            <p class="result-grade">{{ grade }}</p>
+        </div>
+
+        <!-- 입력값 요약 -->
+        <div class="result-summary">
+            <p class="summary-title">입력 데이터 요약</p>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <span class="summary-label">수면 시간</span>
+                    <span class="summary-val">{{ sleep_duration }}시간</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">나이</span>
+                    <span class="summary-val">{{ age }}세</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">카페인 섭취량</span>
+                    <span class="summary-val">{{ caffeine }}mg</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">각성 횟수</span>
+                    <span class="summary-val">{{ awakenings }}회</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">운동 빈도</span>
+                    <span class="summary-val">주 {{ exercise }}회</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 피드백 -->
+        <div class="result-feedback">
+            💡 {{ feedback }}
+        </div>
+
+        <!-- 버튼 -->
+        <div class="result-buttons">
+            <a href="/predict">다시 예측하기</a>
+            <a href="/history">내 기록 보기</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

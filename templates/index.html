@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SleepML - 수면 품질 예측</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!--<link rel="stylesheet" href="../static/css/style.css">-->
+</head>
+<body>
+
+    <!-- 네비게이션 -->
+    <nav>
+        <div class="logo">🌙 SleepML</div>
+        <a href="/predict">예측하기</a>
+        <a href="/history">내 기록</a>
+        <a href="/stats">통계/분석</a>
+    </nav>
+
+    <hr>
+
+    <!-- 히어로 섹션 -->
+    <div class="hero">
+        <div class="hero-icon">🌙</div>
+        <h1>오늘 밤, 당신의 수면은 <span>몇 점</span>일까요?</h1>
+        <p>생활 패턴을 입력하면 AI가 수면 품질을 예측해드립니다</p>
+    </div>
+
+    <!-- CTA 버튼 -->
+    <div class="cta-buttons">
+        <a href="/predict">지금 예측하기</a>
+        <a href="/history">내 예측 기록 보기</a>
+    </div>
+
+    <hr>
+
+    <!-- 서비스 카드 3개 -->
+    <div class="steps-section">
+        <p class="section-title">서비스 소개</p>
+        <div class="steps-cards">
+            <a href="/predict">
+                <span class="step-num">STEP 1</span>
+                <span class="step-title">생활습관<br>입력</span>
+            </a>
+            <a href="/predict">
+                <span class="step-num">STEP 2</span>
+                <span class="step-title">AI 품질<br>예측</span>
+            </a>
+            <a href="/result">
+                <span class="step-num">STEP 3</span>
+                <span class="step-title">결과 및<br>피드백</span>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

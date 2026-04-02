@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>통계/분석</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">🌙 SleepML</div>
+        <a href="/">홈</a>
+        <a href="/predict">예측하기</a>
+        <a href="/history">내 기록</a>
+        <a href="/stats">통계/분석</a>
+    </nav>
+
+    <hr>
+
+    <div class="stats-section">
+        <h2>데이터 분석</h2>
+        <p class="stats-desc">수면 품질에 영향을 주는 요소들을 분석한 결과예요</p>
+
+        <!-- 그래프 1 : 상관관계 히트맵 -->
+        <div class="stats-card">
+            <p class="stats-card-title">📊 피처 간 상관관계 히트맵</p>
+            <p class="stats-card-desc">각 요소가 수면 품질에 미치는 영향도</p>
+            <div class="stats-img-wrap">
+                <img src="data:image/png;base64,{{ heatmap }}" alt="히트맵">
+            </div>
+        </div>
+
+        <!-- 그래프 2 : 수면시간 vs 수면품질 -->
+        <div class="stats-card">
+            <p class="stats-card-title">📈 수면 시간 vs 수면 품질</p>
+            <p class="stats-card-desc">수면 시간이 길수록 품질이 높아지는지 확인</p>
+            <div class="stats-img-wrap">
+                <img src="data:image/png;base64,{{ scatter }}" alt="산점도">
+            </div>
+        </div>
+
+        <!-- 그래프 3 : 카페인 섭취 vs 수면품질 -->
+        <div class="stats-card">
+            <p class="stats-card-title">📉 카페인 섭취량 vs 수면 품질</p>
+            <p class="stats-card-desc">카페인이 수면에 미치는 영향</p>
+            <div class="stats-img-wrap">
+                <img src="data:image/png;base64,{{ bar }}" alt="막대그래프">
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

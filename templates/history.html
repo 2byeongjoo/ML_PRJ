@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예측 이력</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">🌙 SleepML</div>
+        <a href="/">홈</a>
+        <a href="/predict">예측하기</a>
+        <a href="/history">내 기록</a>
+        <a href="/stats">통계/분석</a>
+    </nav>
+
+    <hr>
+
+    <div class="history-section">
+        <h2>예측 이력</h2>
+        <p class="history-desc">총 {{ records|length }}건의 예측 기록이 있습니다</p>
+
+        {% if records %}
+        <div class="history-table-wrap">
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>예측일시</th>
+                        <th>수면시간</th>
+                        <th>카페인</th>
+                        <th>각성횟수</th>
+                        <th>운동빈도</th>
+                        <th>예측점수</th>
+                        <th>등급</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for r in records %}
+                    <tr>
+                        <td>{{ r.id }}</td>
+                        <td>{{ r.created_at }}</td>
+                        <td>{{ r.sleep_duration }}h</td>
+                        <td>{{ r.caffeine }}mg</td>
+                        <td>{{ r.awakenings }}회</td>
+                        <td>주 {{ r.exercise }}회</td>
+                        <td class="score-val">{{ r.predicted_score }}</td>
+                        <td>
+                            <span class="grade-badge grade-{{ r.grade_label }}">
+                                {{ r.grade_label }}
+                            </span>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        {% else %}
+        <div class="history-empty">
+            <p>아직 예측 기록이 없어요</p>
+            <a href="/predict">지금 예측하러 가기</a>
+        </div>
+        {% endif %}
+
+    </div>
+
+</body>
+</html>

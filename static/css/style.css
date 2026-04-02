@@ -1,0 +1,555 @@
+/* ===========================
+   공통 기본 설정
+=========================== */
+/* == 메인 페이지 == */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #0d1117;
+    color: #e2e8f0;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ===========================
+   네비게이션 바 (공통 - base.html에 쓸 것)
+=========================== */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 16px 48px;
+    background-color: #161b22;
+    border-bottom: 1px solid #30363d;
+}
+
+nav .logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #a5b4fc;
+    margin-right: auto; /* 로고를 왼쪽 끝으로 */
+}
+
+nav a {
+    font-size: 0.9rem;
+    color: #8b949e;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+nav a:hover {
+    background-color: #21262d;
+    color: #e2e8f0;
+}
+
+/* ===========================
+   구분선
+=========================== */
+hr {
+    border: none;
+    border-top: 1px solid #30363d;
+    margin: 0;
+}
+
+/* ===========================
+   히어로 섹션 (메인 가운데 영역)
+=========================== */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 24px 48px;
+    gap: 16px;
+}
+
+.hero .hero-icon {
+    font-size: 3rem;
+    margin-bottom: 8px;
+}
+
+.hero h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #e2e8f0;
+}
+
+.hero h1 span {
+    color: #a5b4fc; /* 포인트 색상 */
+}
+
+.hero p {
+    font-size: 1rem;
+    color: #8b949e;
+    max-width: 480px;
+    line-height: 1.7;
+}
+
+/* ===========================
+   CTA 버튼 2개 영역
+=========================== */
+.cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    padding: 0 24px 64px;
+    flex-wrap: wrap; /* 화면 좁을 때 줄바꿈 */
+}
+
+.cta-buttons a {
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.cta-buttons a:first-child {
+    background-color: #a5b4fc;
+    color: #0d1117;
+}
+
+.cta-buttons a:first-child:hover {
+    background-color: #818cf8;
+    transform: translateY(-2px);
+}
+
+.cta-buttons a:last-child {
+    background-color: transparent;
+    color: #a5b4fc;
+    border: 1px solid #a5b4fc;
+}
+
+.cta-buttons a:last-child:hover {
+    background-color: rgba(165, 180, 252, 0.1);
+    transform: translateY(-2px);
+}
+
+/* ===========================
+   서비스 카드 3개 섹션
+=========================== */
+.steps-section {
+    padding: 48px 48px 80px;
+}
+
+.steps-section .section-title {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #8b949e;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+}
+
+.steps-cards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.steps-cards a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    padding: 32px 24px;
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    width: 220px;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.steps-cards a:hover {
+    border-color: #a5b4fc;
+    transform: translateY(-4px);
+}
+
+.steps-cards a .step-num {
+    font-size: 0.75rem;
+    color: #a5b4fc;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.steps-cards a .step-title {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #e2e8f0;
+    line-height: 1.5;
+}
+
+/* ===========================
+   반응형 (모바일)
+=========================== */
+@media (max-width: 600px) {
+    nav {
+        padding: 14px 20px;
+        gap: 16px;
+    }
+
+    .hero {
+        padding: 48px 20px 32px;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .steps-section {
+        padding: 32px 20px 48px;
+    }
+
+    .steps-cards a {
+        width: 100%;
+    }
+}
+/* == 입력 폼 페이지 == */
+.form-section {
+    max-width: 480px;
+    margin: 60px auto;
+    padding: 0 24px;
+}
+
+.form-section h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.form-desc {
+    font-size: 0.9rem;
+    color: #8b949e;
+    margin-bottom: 32px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    color: #e2e8f0;
+    font-weight: 500;
+}
+
+.form-group input {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 10px 14px;
+    color: #e2e8f0;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+    border-color: #a5b4fc;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #a5b4fc;
+    color: #0d1117;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.submit-btn:hover {
+    background-color: #818cf8;
+    transform: translateY(-2px);
+}
+
+/* == 결과 페이지 == */
+.result-section {
+    max-width: 480px;
+    margin: 60px auto;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.result-score-card {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    padding: 40px 24px;
+    text-align: center;
+}
+
+.result-label {
+    font-size: 0.85rem;
+    color: #8b949e;
+    margin-bottom: 12px;
+}
+
+.result-score {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #a5b4fc;
+    margin-bottom: 8px;
+}
+
+.result-grade {
+    font-size: 1.1rem;
+    color: #e2e8f0;
+    font-weight: 500;
+}
+
+.result-summary {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.summary-title {
+    font-size: 0.85rem;
+    color: #8b949e;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.summary-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #30363d;
+    padding-bottom: 10px;
+}
+
+.summary-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.summary-label {
+    color: #8b949e;
+}
+
+.summary-val {
+    color: #e2e8f0;
+    font-weight: 500;
+}
+
+.result-feedback {
+    background-color: rgba(165, 180, 252, 0.08);
+    border: 1px solid rgba(165, 180, 252, 0.25);
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.9rem;
+    color: #c7d2fe;
+    line-height: 1.7;
+}
+
+.result-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.result-buttons a {
+    flex: 1;
+    padding: 12px;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.result-buttons a:first-child {
+    background-color: #a5b4fc;
+    color: #0d1117;
+}
+
+.result-buttons a:first-child:hover {
+    background-color: #818cf8;
+}
+
+.result-buttons a:last-child {
+    border: 1px solid #a5b4fc;
+    color: #a5b4fc;
+}
+
+.result-buttons a:last-child:hover {
+    background-color: rgba(165, 180, 252, 0.1);
+}
+/* == 이력 조회 페이지 == */
+.history-section {
+    max-width: 860px;
+    margin: 60px auto;
+    padding: 0 24px;
+}
+
+.history-section h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.history-desc {
+    font-size: 0.9rem;
+    color: #8b949e;
+    margin-bottom: 28px;
+}
+
+.history-table-wrap {
+    overflow-x: auto;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+
+.history-table th {
+    background-color: #161b22;
+    color: #8b949e;
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #30363d;
+    font-weight: 500;
+}
+
+.history-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #21262d;
+    color: #e2e8f0;
+}
+
+.history-table tr:hover td {
+    background-color: #161b22;
+}
+
+.score-val {
+    color: #a5b4fc;
+    font-weight: 700;
+}
+
+/* 등급 배지 */
+.grade-badge {
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 500;
+}
+
+.grade-badge.grade-나쁨 {
+    background-color: rgba(248, 113, 113, 0.15);
+    color: #f87171;
+}
+
+.grade-badge.grade-보통 {
+    background-color: rgba(251, 191, 36, 0.15);
+    color: #fbbf24;
+}
+
+.grade-badge.grade-양호 {
+    background-color: rgba(74, 222, 128, 0.15);
+    color: #4ade80;
+}
+
+.grade-badge.grade-매우좋음 {
+    background-color: rgba(165, 180, 252, 0.15);
+    color: #a5b4fc;
+}
+
+/* 기록 없을 때 */
+.history-empty {
+    text-align: center;
+    padding: 60px 0;
+    color: #8b949e;
+}
+
+.history-empty p {
+    margin-bottom: 16px;
+    font-size: 1rem;
+}
+
+.history-empty a {
+    padding: 10px 24px;
+    background-color: #a5b4fc;
+    color: #0d1117;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* == 통계/분석 페이지 == */
+.stats-section {
+    max-width: 720px;
+    margin: 60px auto;
+    padding: 0 24px;
+}
+
+.stats-section h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.stats-desc {
+    font-size: 0.9rem;
+    color: #8b949e;
+    margin-bottom: 32px;
+}
+
+.stats-card {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.stats-card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #e2e8f0;
+}
+
+.stats-card-desc {
+    font-size: 0.85rem;
+    color: #8b949e;
+    margin-bottom: 20px;
+}
+
+.stats-img-wrap img {
+    width: 100%;
+    border-radius: 8px;
+}

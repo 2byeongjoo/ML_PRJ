@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수면 품질 예측하기</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- 네비게이션 -->
+    <nav>
+        <div class="logo">🌙 SleepML</div>
+        <a href="/">홈</a>
+        <a href="/predict">예측하기</a>
+        <a href="/history">내 기록</a>
+        <a href="/stats">통계/분석</a>
+    </nav>
+
+    <hr>
+
+    <!-- 입력 폼 -->
+    <div class="form-section">
+        <h2>생활 패턴 입력</h2>
+        <p class="form-desc">어제 하루를 기준으로 입력해주세요</p>
+
+        <form action="/predict" method="POST">
+            <div class="form-group">
+                <label for="sleep_duration">수면 시간 (시간)</label>
+                <input type="number" id="sleep_duration" name="sleep_duration"
+                       step="0.1" min="1" max="12" placeholder="예: 7.5" required>
+            </div>
+
+            <div class="form-group">
+                <label for="age">나이</label>
+                <input type="number" id="age" name="age"
+                       min="1" max="100" placeholder="예: 24" required>
+            </div>
+
+            <div class="form-group">
+                <label for="caffeine">카페인 섭취량 (mg)</label>
+                <input type="number" id="caffeine" name="caffeine"
+                       min="0" max="200" placeholder="예: 50" required>
+            </div>
+
+            <div class="form-group">
+                <label for="awakenings">수면 중 각성 횟수</label>
+                <input type="number" id="awakenings" name="awakenings"
+                       min="0" max="10" placeholder="예: 1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="exercise">운동 빈도 (회/주)</label>
+                <input type="number" id="exercise" name="exercise"
+                       min="0" max="7" placeholder="예: 3" required>
+            </div>
+
+            <button type="submit" class="submit-btn">🔍 수면 품질 예측하기</button>
+        </form>
+    </div>
+
+</body>
+</html>

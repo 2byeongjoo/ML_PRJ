@@ -47,38 +47,38 @@ if st.button('예측하기'): # 클릭 시 True값이 할당됨.
     st.write(f"예측 수면 품질 점수: {prediction[0]:.1f}점")
 
 
-# 6. 예측 이력 MariaDB 저장 (선택)
+    # 6. 예측 이력 MariaDB 저장 (선택)
 
-# 7. 데이터 시각화
-# 데이터 불러오기
-df = pd.read_csv('dataset/Sleep_Efficiency.csv')
+    # 7. 데이터 시각화
+    # 데이터 불러오기
+    df = pd.read_csv('dataset/Sleep_Efficiency.csv')
 
-# - Heatmap
-st.subheader('피처 간 상관관계 히트맵')
-fig, ax = plt.subplots()
-sns.heatmap(df.corr(numeric_only=True), ax=ax, annot=True, fmt='.1f', cmap='coolwarm')
-st.pyplot(fig)
+    # - Heatmap
+    st.subheader('피처 간 상관관계 히트맵')
+    fig, ax = plt.subplots()
+    sns.heatmap(df.corr(numeric_only=True), ax=ax, annot=True, fmt='.1f', cmap='coolwarm')
+    st.pyplot(fig)
 
-# - 산점도용 데이터 준비
-from sklearn.model_selection import train_test_split
+    # - 산점도용 데이터 준비
+    from sklearn.model_selection import train_test_split
 
-df2 = pd.read_csv('dataset/Sleep_Efficiency.csv')
-df2 = df2[['Age', 'Sleep duration', 'Caffeine consumption',
-           'Awakenings', 'Exercise frequency', 'Sleep efficiency']]
-df2 = df2.fillna(df2.mean())
-df2['Quality_of_Sleep'] = df2['Sleep efficiency'] * 10
-X2 = df2.iloc[:, :-2]
-y2 = df2.iloc[:, -1]
-_, X_test2, _, y_test2 = train_test_split(X2, y2, test_size=0.2, random_state=42)
-X_test2_scaled = scaler.transform(X_test2)
-y_pred2 = model.predict(X_test2_scaled)
+    df2 = pd.read_csv('dataset/Sleep_Efficiency.csv')
+    df2 = df2[['Age', 'Sleep duration', 'Caffeine consumption',
+            'Awakenings', 'Exercise frequency', 'Sleep efficiency']]
+    df2 = df2.fillna(df2.mean())
+    df2['Quality_of_Sleep'] = df2['Sleep efficiency'] * 10
+    X2 = df2.iloc[:, :-2]
+    y2 = df2.iloc[:, -1]
+    _, X_test2, _, y_test2 = train_test_split(X2, y2, test_size=0.2, random_state=42)
+    X_test2_scaled = scaler.transform(X_test2)
+    y_pred2 = model.predict(X_test2_scaled)
 
-# - 산점도
-st.subheader('실제값 vs 예측값 산점도')
-fig2, ax2 = plt.subplots()
-ax2.scatter(y_test2, y_pred2, alpha=0.6)
-ax2.plot([y_test2.min(), y_test2.max()],
-         [y_test2.min(), y_test2.max()], 'r--', linewidth=2)
-ax2.set_xlabel('실제 수면 품질')
-ax2.set_ylabel('예측 수면 품질')
-st.pyplot(fig2)
+    # - 산점도
+    st.subheader('실제값 vs 예측값 산점도')
+    fig2, ax2 = plt.subplots()
+    ax2.scatter(y_test2, y_pred2, alpha=0.6)
+    ax2.plot([y_test2.min(), y_test2.max()],
+            [y_test2.min(), y_test2.max()], 'r--', linewidth=2)
+    ax2.set_xlabel('실제 수면 품질')
+    ax2.set_ylabel('예측 수면 품질')
+    st.pyplot(fig2)

@@ -55,7 +55,6 @@ if st.button('예측하기'): # 클릭 시 True값이 할당됨.
 
     # - Heatmap
     st.subheader('피처 간 상관관계 히트맵')
-    st.subheader('피처 간 상관관계 히트맵')
     fig, ax = plt.subplots()
 
     # ❌ 기존 코드 (Sleep efficiency 포함)

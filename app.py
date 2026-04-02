@@ -55,8 +55,24 @@ if st.button('예측하기'): # 클릭 시 True값이 할당됨.
 
     # - Heatmap
     st.subheader('피처 간 상관관계 히트맵')
+    st.subheader('피처 간 상관관계 히트맵')
     fig, ax = plt.subplots()
-    sns.heatmap(df.corr(numeric_only=True), ax=ax, annot=True, fmt='.2f', cmap='coolwarm')
+
+    # ❌ 기존 코드 (Sleep efficiency 포함)
+    # sns.heatmap(df.corr(numeric_only=True), ax=ax, annot=True, fmt='.1f', cmap='coolwarm')
+
+    # ✅ 수정 코드 (Sleep efficiency 제외)
+    heatmap_cols = ['Age', 'Sleep duration', 'Caffeine consumption', 
+                    'Awakenings', 'Exercise frequency', 'Quality_of_Sleep']
+    # df에 Quality_of_Sleep 컬럼이 없으면 추가
+    if 'Quality_of_Sleep' not in df.columns:
+        df['Quality_of_Sleep'] = df['Sleep efficiency'] * 10
+
+    sns.heatmap(df[heatmap_cols].corr(), 
+                ax=ax, 
+                annot=True, 
+                fmt='.2f',  # .1f → .2f로 변경
+                cmap='coolwarm')
     st.pyplot(fig)
 
     # - 산점도용 데이터 준비

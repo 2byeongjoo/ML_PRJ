@@ -71,6 +71,6 @@ if st.button('예측하기'): # 클릭 시 True값이 할당됨.
     ax2.scatter(y_test2, y_pred2, alpha=0.6)
     ax2.plot([y_test2.min(), y_test2.max()],
             [y_test2.min(), y_test2.max()], 'r--', linewidth=2)
-    ax2.set_xlabel('실제 수면 품질')
-    ax2.set_ylabel('예측 수면 품질')
+    ax2.set_xlabel('Actual Sleep Quality')
+    ax2.set_ylabel('Predicted Sleep Quality')
     st.pyplot(fig2)
